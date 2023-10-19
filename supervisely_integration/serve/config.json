@@ -1,0 +1,27 @@
+{
+    "name": "Serve OWL-ViT",
+    "type": "app",
+    "version": "2.0.0",
+    "description": "Class-agnostic interactive detection model for auto-prelabeling",
+    "categories": [
+        "neural network",
+        "images",
+        "object detection",
+        "interactive detection",
+        "serve"
+    ],
+    "need_gpu": false,
+    "gpu": "preferred",
+    "session_tags": [
+        "deployed_owl_vit_object_detection"
+    ],
+    "community_agent": false,
+    "docker_image": "supervisely/owl-vit-v2:1.0.0",
+    "instance_version": "6.7.16",
+    "entrypoint": "python3 -m uvicorn main:model.app --app-dir ./supervisely_integration/serve/src --host 0.0.0.0 --port 8000 --ws websockets",
+    "port": 8000,
+    "task_location": "application_sessions",
+    "license": {
+        "type": "Apache-2.0"
+    }
+}
