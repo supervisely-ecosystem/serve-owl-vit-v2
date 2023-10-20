@@ -1,0 +1,38 @@
+[
+    {
+        "Model": "OWLv2 CLIP B/16 ST",
+        "Size": "590 MB",
+        "LVIS AP": "26.5",
+        "LVIS APr": "29.5"
+    },
+    {
+        "Model": "OWLv2 CLIP B/16 ST+FT",
+        "Size": "590 MB",
+        "LVIS AP": "41.4",
+        "LVIS APr": "36.2"
+    },
+    {
+        "Model": "OWLv2 CLIP B/16 ST/FT ens",
+        "Size": "590 MB",
+        "LVIS AP": "43.9",
+        "LVIS APr": "40.5"
+    },
+    {
+        "Model": "OWLv2 CLIP L/14 ST",
+        "Size": "1666 MB",
+        "LVIS AP": "32.8",
+        "LVIS APr": "34.6"
+    },
+    {
+        "Model": "OWLv2 CLIP L/14 ST+FT",
+        "Size": "1666 MB",
+        "LVIS AP": "48.8",
+        "LVIS APr": "44.0"
+    },
+    {
+        "Model": "OWLv2 CLIP L/14 ST/FT ens",
+        "Size": "1666 MB",
+        "LVIS AP": "44.6",
+        "LVIS APr": "42.6"
+    }
+]
