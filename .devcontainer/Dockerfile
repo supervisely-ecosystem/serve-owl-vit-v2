@@ -36,3 +36,5 @@ RUN apt-get install ffmpeg libgeos-dev libsm6 libxext6 libexiv2-dev libxrender-d
 RUN apt-get -y install curl
 RUN apt-get -y install wget
 RUN apt -y install wireguard iproute2
+
+RUN python3 -m pip install -U scikit-image

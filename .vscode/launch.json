@@ -15,7 +15,9 @@
                 "--port",
                 "8000",
                 "--ws",
-                "websockets"
+                "websockets",
+                "--loop",
+                "asyncio"
             ],
             "jinja": true,
             "justMyCode": false,
