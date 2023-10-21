@@ -28,6 +28,9 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
     def get_models(self):
         models_data = sly.json.load_json_file(models_data_path)
         return models_data
+    
+    def support_custom_models(self):
+        return False
 
     @property
     def model_meta(self):
