@@ -3,7 +3,7 @@ mode: text_prompt
 # prediction confidence threshold
 confidence_threshold:
 - text_prompt: 0.1
-- reference_image: 0.8
+- reference_image: 0.9994
 # non-max suppression threshold
 nms_threshold: 0.3
 # text prompt, can consist of 1 or more queries (only for text_prompt mode)

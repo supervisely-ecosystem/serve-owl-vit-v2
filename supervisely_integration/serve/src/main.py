@@ -75,12 +75,9 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
             normalize=config.model.normalize,
             box_bias=config.model.box_bias,
         )
-        # variables = module.load_variables(config.init_from.checkpoint_path)
-        variables_name = selected_model.replace(" ", "_").replace("/", "_") + ".npy"
+        variables_name = selected_model.replace(" ", "_").replace("/", "_")
         variables_file_path = os.path.join(variables_dir, variables_name)
-        # np.save(variables_file_path, variables)
-        variables = np.load(variables_file_path, allow_pickle=True)
-        variables = variables.item()
+        variables = module.load_variables(variables_file_path)
         self.model = inference.Model(config, module, variables)
         self.model.warm_up()
         # define class names
