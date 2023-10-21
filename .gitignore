@@ -1,3 +1,4 @@
 supervisely.env
 supervisely_integration/serve/debug.env
 **/__pycache__/
+*.npy
