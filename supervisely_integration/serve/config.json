@@ -1,5 +1,5 @@
 {
-    "name": "Serve OWL-ViT",
+    "name": "Serve OWL-ViT v2",
     "type": "app",
     "version": "2.0.0",
     "description": "Class-agnostic interactive detection model for auto-prelabeling",
