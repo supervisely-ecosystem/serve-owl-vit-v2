@@ -28,7 +28,7 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
     def get_models(self):
         models_data = sly.json.load_json_file(models_data_path)
         return models_data
-    
+
     def support_custom_models(self):
         return False
 
@@ -169,19 +169,18 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
             text_queries = settings.get("text_queries")
             text_queries = tuple(text_queries)
             n_queries = len(text_queries)
-            if sly.is_production():
-                # add object classes to model meta if necessary
-                for text_query in text_queries:
-                    class_name = text_query.replace(" ", "_")
-                    if not self._model_meta.get_obj_class(class_name):
-                        if len(self.box_colors) > 0:
-                            color = generate_rgb(self.box_colors)
-                        else:
-                            color = random_rgb()
-                        self.box_colors.append(color)
-                        self.class_names.append(class_name)
-                        new_class = sly.ObjClass(class_name, sly.Rectangle, color)
-                        self._model_meta = self._model_meta.add_obj_class(new_class)
+            # add object classes to model meta if necessary
+            for text_query in text_queries:
+                class_name = text_query.replace(" ", "_")
+                if not self._model_meta.get_obj_class(class_name):
+                    if len(self.box_colors) > 0:
+                        color = generate_rgb(self.box_colors)
+                    else:
+                        color = random_rgb()
+                    self.box_colors.append(color)
+                    self.class_names.append(class_name)
+                    new_class = sly.ObjClass(class_name, sly.Rectangle, color)
+                    self._model_meta = self._model_meta.add_obj_class(new_class)
             # extract embeddings from text queries
             query_embeddings = self.model.embed_text_queries(text_queries)
             # get box confidence scores
@@ -221,10 +220,7 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
                     box[3] = round(box[3] * scaler)
                     label = text_queries[label]
                     label = label.replace(" ", "_")
-                    if sly.is_production():
-                        class_name = label
-                    else:
-                        class_name = self.class_names[0]
+                    class_name = label
                     score = round(float(score), 2)
                     predictions.append(
                         sly.nn.PredictionBBox(class_name=class_name, bbox_tlbr=box, score=score)
