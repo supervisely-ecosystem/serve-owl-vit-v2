@@ -76,8 +76,14 @@ class OWLViTv2Model(sly.nn.inference.PromptBasedObjectDetection):
             box_bias=config.model.box_bias,
         )
         variables_name = selected_model.replace(" ", "_").replace("/", "_")
-        variables_file_path = os.path.join(variables_dir, variables_name)
-        variables = module.load_variables(variables_file_path)
+        variables_url = f"https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/{variables_name}"
+        variables_dst_path = os.path.join(variables_dir, variables_name)
+        if not sly.fs.file_exists(variables_dst_path):
+            self.download(
+                src_path=variables_url,
+                dst_path=variables_dst_path,
+            )
+        variables = module.load_variables(variables_dst_path)
         self.model = inference.Model(config, module, variables)
         self.model.warm_up()
         # define class names
