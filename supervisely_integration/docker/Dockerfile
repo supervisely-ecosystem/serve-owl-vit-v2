@@ -33,3 +33,12 @@ RUN python3 -m pip install supervisely==6.72.156
 RUN apt-get install ffmpeg libgeos-dev libsm6 libxext6 libexiv2-dev libxrender-dev libboost-all-dev -y
 
 RUN python3 -m pip install -U scikit-image
+
+RUN apt-get -y install wget
+RUN mkdir -p variables
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_B_16_ST -O OWLv2_CLIP_B_16_ST
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_B_16_ST+FT -O OWLv2_CLIP_B_16_ST+FT
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_B_16_ST_FT_ens -O OWLv2_CLIP_B_16_ST_FT_ens
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_L_14_ST -O OWLv2_CLIP_L_14_ST
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_L_14_ST+FT -O OWLv2_CLIP_L_14_ST+FT
+RUN wget https://github.com/supervisely-ecosystem/serve-owl-vit-v2/releases/download/v0.9.0/OWLv2_CLIP_L_14_ST_FT_ens -O OWLv2_CLIP_L_14_ST_FT_ens
