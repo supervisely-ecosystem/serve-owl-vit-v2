@@ -16,7 +16,7 @@
         "deployed_owl_vit_object_detection"
     ],
     "community_agent": false,
-    "docker_image": "supervisely/owl-vit-v2:1.0.1",
+    "docker_image": "supervisely/owl-vit-v2:1.0.2",
     "instance_version": "6.7.16",
     "entrypoint": "python3 -m uvicorn main:model.app --app-dir ./supervisely_integration/serve/src --host 0.0.0.0 --port 8000 --ws websockets --loop asyncio",
     "port": 8000,
