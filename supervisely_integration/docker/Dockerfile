@@ -29,7 +29,7 @@ RUN mkdir /big_vision
 RUN git clone https://github.com/google-research/big_vision.git /big_vision
 RUN python3 -m pip install -r /big_vision/big_vision/requirements.txt
 
-RUN python3 -m pip install supervisely==6.73.102
+RUN python3 -m pip install supervisely==6.73.124
 RUN apt-get install ffmpeg libgeos-dev libsm6 libxext6 libexiv2-dev libxrender-dev libboost-all-dev -y
 
 RUN python3 -m pip install -U scikit-image
